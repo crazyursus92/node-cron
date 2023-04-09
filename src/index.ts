@@ -24,7 +24,7 @@ app.get('/results', (req, res) => {
     const fileContent = fs.readFileSync(`./src/results/${file}`, 'utf8');
     const data = JSON.parse(fileContent);
     const query = params.queries.find((query) => {
-      return file.includes(translitRusEng(query, { slug: true }));
+      return file === `${translitRusEng(query, { slug: true })}.json`;
     });
 
     return {
